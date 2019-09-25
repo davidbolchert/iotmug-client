@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "https://localhost:44377/api/v1"
+  apiUrl: "https://api-iotmug.azurewebsites.net/api/v1"
 };
