@@ -28,3 +28,4 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'dist'
     publishLocation: 'Container'
+    targetPath: 'iotmug-app/dist'
