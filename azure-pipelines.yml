@@ -20,12 +20,10 @@ steps:
 - script: |
     npm install -g @angular/cli
     npm install
-    ng build --prod
+    run build -- --prod
   displayName: 'npm install and build'
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'dist'
-    publishLocation: 'Container'
     targetPath: 'iotmug-app/dist'
