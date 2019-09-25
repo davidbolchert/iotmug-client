@@ -1,0 +1,21 @@
+mat-sidenav-container {
+    background-color: #eee;
+}
+
+mat-sidenav {
+    background-color: #333;
+    width: 200px;
+}
+
+.mat-list-item, .mat-button {
+    color: #ddd
+}
+
+.my-container {
+    height: calc(100vh - 64px);
+    width: calc(100w - 200px);
+    padding-left: 200px;
+    @media (max-width: 599px) {
+        height: calc(100vh - 56px);
+    }
+}

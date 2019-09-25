@@ -1,10 +1,27 @@
+import { Router } from '@angular/router';
+import { AuthenticationService } from './services/authentication.service';
+import { User } from './models/user';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'meetup-app';
+	currentUser: User;
+	title = 'IoTMug-app';
+
+	constructor(
+		private router: Router,
+		private authenticationService: AuthenticationService
+	) {
+		this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+        this.authenticationService.gettest().subscribe(x => console.log(x));
+	}
+
+	logout() {
+		this.authenticationService.logout();
+		this.router.navigate(['/signin']);
+	}
 }
