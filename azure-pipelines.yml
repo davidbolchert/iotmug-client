@@ -25,10 +25,10 @@ steps:
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: 'iotmug-app'
+    workingDir: '/'
     customCommand: 'build --prod'
 
 - task: PublishBuildArtifacts@1
   inputs:
     ArtifactName: 'dist'
-    targetPath: 'iotmug-app/dist'
+    targetPath: '/dist'
