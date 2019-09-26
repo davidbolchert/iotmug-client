@@ -20,11 +20,20 @@ steps:
 - script: |
     npm install -g @angular/cli
     npm install
-    npm run build --prod
   workingDirectory: '$(System.DefaultWorkingDirectory)'
-  displayName: 'npm install & build'
+  displayName: 'npm install'
+
+- task: Npm@1
+  displayName: 'ng build'
+  inputs:
+    command: custom
+    workingDir: ./
+    verbose: true
+    customCommand: 'run run build --prod'
 
 - task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact dist'
   inputs:
-    targetPath: '$(System.DefaultWorkingDirectory)/dist'
-    ArtifactName: 'dist'
+    PathtoPublish: ./dist
+    ArtifactName: dist
+
