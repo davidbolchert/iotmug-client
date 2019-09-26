@@ -29,7 +29,7 @@ steps:
     command: custom
     workingDir: ./
     verbose: true
-    customCommand: 'run build --prod'
+    customCommand: 'run build -- --prod'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact dist'
