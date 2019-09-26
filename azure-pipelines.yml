@@ -25,12 +25,12 @@ steps:
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: '/'
+    workingDir: ''
     customCommand: 'run build --prod'
 
 - task: PublishBuildArtifacts@1
   inputs:
-    targetPath: '/dist'
+    targetPath: 'dist'
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'dist'
     publishLocation: 'Container'
