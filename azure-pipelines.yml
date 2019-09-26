@@ -22,7 +22,7 @@ steps:
     npm install
     npm run build --prod
   workingDirectory: '$(System.DefaultWorkingDirectory)'
-  displayName: 'npm install'
+  displayName: 'npm install & build'
 
 - task: PublishBuildArtifacts@1
   inputs:
