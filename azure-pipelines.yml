@@ -30,5 +30,5 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    targetPath: 'dist'
+    targetPath: '../1/dist'
     ArtifactName: 'dist'
