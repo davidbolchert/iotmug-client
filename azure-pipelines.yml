@@ -31,6 +31,4 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     targetPath: 'dist'
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'dist'
-    publishLocation: 'Container'
