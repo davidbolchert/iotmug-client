@@ -20,6 +20,7 @@ import { PageNotFoundComponent } from './components/errors/page-not-found/page-n
 import { fakeBackendProvider } from './helpers/fake-backend-interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule, MatIconModule, MatListModule } from  '@angular/material';
+import { DevicesComponent } from './components/devices/devices.component';
 
 @NgModule({
 	declarations: [
@@ -27,7 +28,8 @@ import { MatToolbarModule, MatIconModule, MatListModule } from  '@angular/materi
 		SigninComponent,
 		DashboardComponent,
 		DeviceComponent,
-		PageNotFoundComponent
+		PageNotFoundComponent,
+		DevicesComponent
 	],
 	imports: [
 		AppRoutingModule,
