@@ -20,16 +20,17 @@ steps:
 - script: |
     npm install -g @angular/cli
     npm install
+    ng run iotmug-app:build:production
   workingDirectory: '$(System.DefaultWorkingDirectory)'
-  displayName: 'npm install'
+  displayName: 'npm install & build'
 
-- task: Npm@1
-  displayName: 'ng build'
-  inputs:
-    command: custom
-    workingDir: ./
-    verbose: true
-    customCommand: 'run build-prod'
+# - task: Npm@1
+#   displayName: 'ng build'
+#   inputs:
+#     command: custom
+#     workingDir: ./
+#     verbose: true
+#     customCommand: 'run build-prod'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact dist'
