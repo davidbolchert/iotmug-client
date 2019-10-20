@@ -32,14 +32,14 @@
             <mat-card-content>
                 <form [formGroup]="deviceTypeForm" (ngSubmit)="onSubmit()">
                     <mat-form-field class="w-100 pb-2">
-                        <input matInput placeholder="Name" formControlName="name" [errorStateMatcher]="matcher">
+                        <input matInput placeholder="Name" formControlName="name" >
                         <mat-error *ngIf="form.name.hasError('required')">
                             Name is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field class="w-100 pb-2">
                         <textarea matInput placeholder="Default Twin" formControlName="defaultTwin"
-                            [errorStateMatcher]="matcher" (blur)="checkJson()"></textarea>
+                            (blur)="checkJson()"></textarea>
                         <mat-error *ngIf="form.defaultTwin.hasError('jsonValidator')">
                             Invalid <strong>json</strong> format
                         </mat-error>

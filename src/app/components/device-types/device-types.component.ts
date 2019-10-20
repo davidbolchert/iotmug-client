@@ -1,8 +1,8 @@
 import { ApiWrapperService } from './../../services/api-wrapper.service';
 import { DeviceType } from './../../models/device-type';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Guid } from 'guid-typescript';
 
 @Component({
