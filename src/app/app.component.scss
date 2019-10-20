@@ -11,11 +11,15 @@ mat-sidenav {
     color: #ddd
 }
 
-.my-container {
+mat-sidenav-content{
     height: calc(100vh - 64px);
     width: calc(100w - 200px);
     padding-left: 200px;
     @media (max-width: 599px) {
         height: calc(100vh - 56px);
     }
+}
+
+.my-container {
+    padding: 1em;
 }

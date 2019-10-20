@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-lg-6">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>Device Type List</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-action-list>
+                    <button mat-list-item *ngFor="let type of deviceTypes" (click)="edit(type.deviceTypeId)">
+                        <span class="w-100 d-flex justify-content-between">
+                            <span class="align-self-center">{{ type.name }}</span>
+                            <button mat-icon-button (click)="delete(type.deviceTypeId)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </span>
+                    </button>
+                </mat-action-list>
+            </mat-card-content>
+            <div class="text-right">
+                <button mat-fab color="primary" (click)="create()">
+                    <mat-icon aria-hidden="false" aria-label="Add">add</mat-icon>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+    <div class="col-lg-6">
+        <mat-card *ngIf="deviceTypeForm != undefined">
+            <mat-card-header>
+                <mat-card-title>{{(deviceType.deviceTypeId === undefined) ? 'Create new type' : 'Update type' }}
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <form [formGroup]="deviceTypeForm" (ngSubmit)="onSubmit()">
+                    <mat-form-field class="w-100 pb-2">
+                        <input matInput placeholder="Name" formControlName="name" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="form.name.hasError('required')">
+                            Name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="w-100 pb-2">
+                        <textarea matInput placeholder="Default Twin" formControlName="defaultTwin"
+                            [errorStateMatcher]="matcher" (blur)="checkJson()"></textarea>
+                        <mat-error *ngIf="form.defaultTwin.hasError('jsonValidator')">
+                            Invalid <strong>json</strong> format
+                        </mat-error>
+                    </mat-form-field>
+                    <button [disabled]="loading" mat-flat-button color="primary">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Send
+                    </button>
+                    <div *ngIf="errorMessage" class="alert alert-danger mt-3 mb-0">{{errorMessage}}</div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -32,10 +32,6 @@ export class AuthenticationService {
             }));
     }
 
-    gettest() {
-        return this._http.get<any>(`${environment.apiUrl}/values`).pipe(map(x => { return x; }))
-    }
-
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');

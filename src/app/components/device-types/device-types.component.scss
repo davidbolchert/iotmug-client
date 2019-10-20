@@ -1,0 +1,14 @@
+.mat-action-list {
+    border-bottom: 1px solid #444;
+}
+.mat-list-item {
+    border-top: 1px solid #444;
+}
+
+textarea {
+    min-height: 20em;
+}
+
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+}

@@ -17,7 +17,6 @@ export class AppComponent {
 		private authenticationService: AuthenticationService
 	) {
 		this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-        this.authenticationService.gettest().subscribe(x => console.log(x));
 	}
 
 	logout() {

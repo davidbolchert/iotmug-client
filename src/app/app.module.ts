@@ -10,26 +10,25 @@ import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SigninComponent } from './components/authentication/signin/signin.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { DeviceComponent } from './components/device/device.component';
 import { PageNotFoundComponent } from './components/errors/page-not-found/page-not-found.component';
 import { fakeBackendProvider } from './helpers/fake-backend-interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule, MatIconModule, MatListModule } from  '@angular/material';
 import { DevicesComponent } from './components/devices/devices.component';
+import { DeviceTypesComponent } from './components/device-types/device-types.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		SigninComponent,
-		DashboardComponent,
-		DeviceComponent,
 		PageNotFoundComponent,
-		DevicesComponent
+		DevicesComponent,
+		DeviceTypesComponent,
 	],
 	imports: [
 		AppRoutingModule,
@@ -47,7 +46,8 @@ import { DevicesComponent } from './components/devices/devices.component';
 		AppRoutingModule,
 		MatToolbarModule,
 		MatListModule,
-		MatIconModule
+		MatIconModule,
+		MatCardModule
 	],
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
