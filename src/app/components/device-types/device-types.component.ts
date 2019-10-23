@@ -31,6 +31,13 @@ export class DeviceTypesComponent implements OnInit {
 
 	get form() { return this.deviceTypeForm.controls; }
 
+	initializeForm(type: DeviceType){
+		this.deviceTypeForm = this._formBuilder.group({
+			name: [type.name, Validators.required],
+			defaultTwin: [type.defaultTwin]
+		})
+	}
+
 	loadData() {
 		this.errorMessage = '';
 
@@ -47,10 +54,7 @@ export class DeviceTypesComponent implements OnInit {
 	create() {
 		this.loading = false;
 		this.deviceType = new DeviceType();
-		this.deviceTypeForm = this._formBuilder.group({
-			name: ['', Validators.required],
-			defaultTwin: ['{\n}']
-		})
+		this.initializeForm(this.deviceType);
 	}
 
 	checkJson() {
@@ -66,10 +70,7 @@ export class DeviceTypesComponent implements OnInit {
 		this._api.getById(this.serviceApi, id).subscribe(
 			(data: DeviceType) => {
 				this.deviceType = data;
-				this.deviceTypeForm = this._formBuilder.group({
-					name: [this.deviceType.name, Validators.required],
-					defaultTwin: [this.deviceType.defaultTwin]
-				})
+				this.initializeForm(this.deviceType)
 			}, 
 			error => console.log(error)
 		);
@@ -111,10 +112,9 @@ export class DeviceTypesComponent implements OnInit {
 
 	put() {
 		this._api.put(this.serviceApi, this.deviceType).subscribe(
-			(data: DeviceType) => {
-				this.deviceType = data
+			() => {
 				this.loadData();
-				this.edit(data.deviceTypeId);
+				this.edit(this.deviceType.deviceTypeId);
 			},
 			error => {
 				console.log(error);

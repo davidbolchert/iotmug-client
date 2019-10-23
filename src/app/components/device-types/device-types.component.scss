@@ -9,6 +9,10 @@ textarea {
     min-height: 20em;
 }
 
+div.col-lg-6 {
+    margin-bottom: 4em;
+}
+
 @keyframes spinner {
     to {transform: rotate(360deg);}
 }

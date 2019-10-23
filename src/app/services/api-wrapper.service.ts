@@ -19,6 +19,10 @@ export class ApiWrapperService {
 		return this._http.get<any>(`${environment.apiUrl}/${serviceApi}/${id}`);
 	}
 
+	get(api: string): Observable<any> {
+		return this._http.get<any>(`${environment.apiUrl}/${api}`);
+	}
+
 	post(serviceApi: string, entity: any): Observable<any> {
 		return this._http.post(`${environment.apiUrl}/${serviceApi}`, entity);
 	}

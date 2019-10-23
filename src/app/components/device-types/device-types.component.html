@@ -2,7 +2,7 @@
     <div class="col-lg-6">
         <mat-card class="example-card">
             <mat-card-header>
-                <mat-card-title>Device Type List</mat-card-title>
+                <mat-card-title>Device Types List</mat-card-title>
             </mat-card-header>
             <mat-card-content>
                 <mat-action-list>
@@ -26,8 +26,8 @@
     <div class="col-lg-6">
         <mat-card *ngIf="deviceTypeForm != undefined">
             <mat-card-header>
-                <mat-card-title>{{(deviceType.deviceTypeId === undefined) ? 'Create new type' : 'Update type' }}
-                </mat-card-title>
+                <mat-card-title>{{(deviceType?.deviceTypeId === undefined) ? 'Create new type' : 'Update type' }}</mat-card-title>
+                <mat-card-subtitle>{{deviceType?.deviceTypeId}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <form [formGroup]="deviceTypeForm" (ngSubmit)="onSubmit()">

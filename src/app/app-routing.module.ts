@@ -1,5 +1,5 @@
 import { DeviceTypesComponent } from './components/device-types/device-types.component';
-import { DevicesComponent } from './components/devices/devices.component';
+import { DevicesComponent } from "./components/devices/devices.component";
 import { AuthGuard } from './helpers/auth.guard';
 import { PageNotFoundComponent } from './components/errors/page-not-found/page-not-found.component';
 import { SigninComponent } from './components/authentication/signin/signin.component';

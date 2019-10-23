@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SigninComponent } from './components/authentication/signin/signin.component';
@@ -19,7 +20,7 @@ import { PageNotFoundComponent } from './components/errors/page-not-found/page-n
 import { fakeBackendProvider } from './helpers/fake-backend-interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule, MatIconModule, MatListModule } from  '@angular/material';
-import { DevicesComponent } from './components/devices/devices.component';
+import { DevicesComponent } from "./components/devices/devices.component";
 import { DeviceTypesComponent } from './components/device-types/device-types.component';
 
 @NgModule({
@@ -47,7 +48,8 @@ import { DeviceTypesComponent } from './components/device-types/device-types.com
 		MatToolbarModule,
 		MatListModule,
 		MatIconModule,
-		MatCardModule
+		MatCardModule,
+		MatSelectModule
 	],
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
