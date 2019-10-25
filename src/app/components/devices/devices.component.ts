@@ -153,7 +153,8 @@ export class DevicesComponent implements OnInit {
 		);
 	}
 
-	delete(id: Guid) {
+	delete(event:any , id: Guid) {
+		event.stopPropagation();
 		this._api.delete(this.deviceServiceApi, id).subscribe(
 			() => this.loadData(),
 			error => {
@@ -161,7 +162,7 @@ export class DevicesComponent implements OnInit {
 				this.errorMessage = error;
 			},
 			() => {
-				this.device = new Device();
+				this.device = undefined;
 				this.deviceForm = undefined;
 			}
 		);

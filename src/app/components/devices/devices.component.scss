@@ -13,6 +13,13 @@ div.col-lg-6 {
     margin-bottom: 4em;
 }
 
+.connected {
+    color: darkgreen;
+}
+.disconnected {
+    color: darkred;
+}
+
 @keyframes spinner {
     to {transform: rotate(360deg);}
 }

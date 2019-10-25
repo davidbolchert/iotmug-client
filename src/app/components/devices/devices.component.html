@@ -9,9 +9,10 @@
                     <button mat-list-item *ngFor="let d of devices" (click)="edit(d.deviceId)">
                         <span class="w-100 d-flex justify-content-between">
                             <span class="align-self-center">
+                                <mat-icon aria-label="Connected" [ngClass]="d.isConnected ? 'connected': 'disconnected'" class="align-text-bottom">wifi_tethering</mat-icon>
                                 [{{d.type.name}}] {{d.name}}
                             </span>
-                            <button mat-icon-button (click)="delete(d.deviceId)">
+                            <button mat-icon-button (click)="delete($event, d.deviceId)">
                                 <mat-icon>delete</mat-icon>
                             </button>
                         </span>
@@ -29,7 +30,7 @@
         <mat-card *ngIf="deviceForm != undefined">
             <mat-card-header>
                 <mat-card-title>{{(device?.deviceId === undefined) ? 'Create new device' : 'Update device' }}</mat-card-title>
-                <mat-card-subtitle>{{device?.deviceId}}</mat-card-subtitle>
+                <mat-card-subtitle>{{device?.password}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <form [formGroup]="deviceForm">
